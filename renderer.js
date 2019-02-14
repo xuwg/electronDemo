@@ -1,5 +1,6 @@
 const ipc = require('electron').ipcRenderer
-
+const kMaxBigAmountLength = 5;
+const kMaxSmallAmountlength = 2;
 // maxbt = document.getElementById('maxbt')
 // maxbt.addEventListener('click', () => {
 //     console.log('hello vscode!')
@@ -10,6 +11,13 @@ const ipc = require('electron').ipcRenderer
 //     ipc.send('window-min');
 
 // });
+
+
+window.onload = ()=>{
+    var amountEdit = document.getElementById('amount');
+    amountEdit.focus();
+}
+
 document.getElementById('closebt').addEventListener('click', () => {
     ipc.send('window-close');
 });
@@ -18,6 +26,7 @@ function IputAmount(num) {
 
     var amountEdit = document.getElementById('amount');
     var amount = amountEdit.value;
+
     switch (num) {
         case '0':
             {
@@ -28,12 +37,12 @@ function IputAmount(num) {
                 } else if (amount != '0.0') { //金额为0.0时在输入0没意义不允许输入
                     var index = amount.indexOf('.');
                     if (index == -1) {
-                        if (amount != 0 && amount.length < 7) { //金额为0时在输入0没意义不允许输入
+                        if (amount != 0 && amount.length < kMaxBigAmountLength) { //金额为0时在输入0没意义不允许输入
                             amount += '0';
                         }
                     } else {
                         var lingqian = amount.slice(index + 1);
-                        if (lingqian.length < 2) { //小数点后面只允许输入两位小数
+                        if (lingqian.length < kMaxSmallAmountlength) { //小数点后面只允许输入两位小数
                             amount += num;
                         }
                     }
@@ -53,7 +62,7 @@ function IputAmount(num) {
             {
                 var index = amount.indexOf('.');
                 if (index == -1) { //没有小数点的情况
-                    if (amount.length < 7) {
+                    if (amount.length < kMaxBigAmountLength) {
                         if (amount == 0) {
                             amount = num;
                         } else {
@@ -65,7 +74,7 @@ function IputAmount(num) {
                         amount += num;
                     } else {
                         var lingqian = amount.slice(index + 1);
-                        if (lingqian.length < 2) { //小数点后面只允许输入两位小数
+                        if (lingqian.length < kMaxSmallAmountlength) { //小数点后面只允许输入两位小数
                             amount += num;
                         }
                     }
@@ -75,6 +84,19 @@ function IputAmount(num) {
     }
 
     amountEdit.value = amount;
+};
+
+document.getElementById('amount').onkeydown = () => {
+    if (event.keyCode == 13) {
+    }
+    // var keyCode = event.keyCode;
+    // setTimeout(() => {
+    //     if (keyCode >= 48 && keyCode <= 57) {
+    //         var a = String(keyCode - 48);
+    //         alert(a);
+    //         IputAmount(a);
+    //     }
+    // }, 300);
 };
 
 document.getElementById('num0').onclick = () => {
