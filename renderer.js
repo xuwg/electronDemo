@@ -1,6 +1,7 @@
 const ipc = require('electron').ipcRenderer
 const kMaxBigAmountLength = 5;
 const kMaxSmallAmountlength = 2;
+var amountEdit = document.getElementById('amount');
 // maxbt = document.getElementById('maxbt')
 // maxbt.addEventListener('click', () => {
 //     console.log('hello vscode!')
@@ -13,8 +14,7 @@ const kMaxSmallAmountlength = 2;
 // });
 
 
-window.onload = ()=>{
-    var amountEdit = document.getElementById('amount');
+window.onload = () => {
     amountEdit.focus();
 }
 
@@ -24,7 +24,6 @@ document.getElementById('closebt').addEventListener('click', () => {
 
 function IputAmount(num) {
 
-    var amountEdit = document.getElementById('amount');
     var amount = amountEdit.value;
 
     switch (num) {
@@ -81,23 +80,24 @@ function IputAmount(num) {
                 }
             }
             break;
+            345
     }
 
     amountEdit.value = amount;
 };
 
-document.getElementById('amount').onkeydown = () => {
-    if (event.keyCode == 13) {
+function filterKeyCode() {
+
+    var regEx = /^\d{1,5}(\.\d{0,2})?$/;
+    var value = amountEdit.value;
+
+    if (!regEx.test(value)) {
+        amountEdit.value = value.slice(0, value.length-1);
     }
-    // var keyCode = event.keyCode;
-    // setTimeout(() => {
-    //     if (keyCode >= 48 && keyCode <= 57) {
-    //         var a = String(keyCode - 48);
-    //         alert(a);
-    //         IputAmount(a);
-    //     }
-    // }, 300);
-};
+
+}
+
+amountEdit.onkeyup = filterKeyCode;
 
 document.getElementById('num0').onclick = () => {
     IputAmount('0');
