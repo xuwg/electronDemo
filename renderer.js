@@ -15,7 +15,16 @@ var amountEdit = document.getElementById('amount');
 
 
 window.onload = () => {
+
     amountEdit.focus();
+
+    ipc.send('put-in-tray');
+
+    // Tray removed from context menu on icon
+    ipc.on('tray-removed', function () {
+        ipc.send('remove-tray');
+    })
+
 }
 
 document.getElementById('closebt').addEventListener('click', () => {
@@ -92,7 +101,7 @@ function filterKeyCode() {
     var value = amountEdit.value;
 
     if (!regEx.test(value)) {
-        amountEdit.value = value.slice(0, value.length-1);
+        amountEdit.value = value.slice(0, value.length - 1);
     }
 
 }
@@ -140,26 +149,3 @@ document.getElementById('delete').onclick = (() => {
     amount = amount.slice(0, amount.length - 1);
     amountEdit.value = amount;
 });
-
-
-// const trayBtn = document.getElementById('put-in-tray')
-// let trayOn = false
-
-// trayBtn.addEventListener('click', function (event) {
-//   if (trayOn) {
-//     trayOn = false
-//     //document.getElementById('tray-countdown').innerHTML = ''
-//     ipc.send('remove-tray')
-//   } else {
-//     trayOn = true
-//     const message = 'Click demo again to remove.'
-//     //document.getElementById('tray-countdown').innerHTML = message
-//     ipc.send('put-in-tray')
-//   }
-// })
-// // Tray removed from context menu on icon
-// ipc.on('tray-removed', function () {
-//   ipc.send('remove-tray')
-//   trayOn = false
-//   //document.getElementById('tray-countdown').innerHTML = ''
-// })
