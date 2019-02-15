@@ -2,6 +2,7 @@ const ipc = require('electron').ipcRenderer
 const kMaxBigAmountLength = 5;
 const kMaxSmallAmountlength = 2;
 var amountEdit = document.getElementById('amount');
+let trayOn = false;
 // maxbt = document.getElementById('maxbt')
 // maxbt.addEventListener('click', () => {
 //     console.log('hello vscode!')
@@ -18,11 +19,16 @@ window.onload = () => {
 
     amountEdit.focus();
 
-    ipc.send('put-in-tray');
+    if (!trayOn) {
+        ipc.send('put-in-tray');
+        trayOn = true;
+    }
+
 
     // Tray removed from context menu on icon
     ipc.on('tray-removed', function () {
         ipc.send('remove-tray');
+        trayOn = false;
     })
 
 }
