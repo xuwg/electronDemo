@@ -13,7 +13,9 @@ let trayOn = false;
 //     ipc.send('window-min');
 
 // });
-
+function $(id) {
+    return document.getElementById(id);
+}
 
 window.onload = () => {
 
@@ -29,7 +31,35 @@ window.onload = () => {
     ipc.on('tray-removed', function () {
         ipc.send('remove-tray');
         trayOn = false;
-    })
+    });
+
+    // 设置左侧tab
+    var items = document.getElementsByTagName('li');
+    for (var i = 0; i < items.length; ++i) {
+        // items[i].onmouseover = function () {
+        //     this.className = "current";
+        // }
+        // items[i].onmouseout = function () {
+        //     this.className = "";
+        // }
+    }
+
+    $('shouYin').onclick = function () {
+        $('shoukuantai').style.display = "block";
+        amountEdit.focus();
+    }
+    $('tuiKuan').onclick = function () {
+        $('shoukuantai').style.display = "none";
+    }
+    $('mingXi').onclick = function () {
+        $('shoukuantai').style.display = "none";
+    }
+    $('banJie').onclick = function () {
+        $('shoukuantai').style.display = "none";
+    }
+    $('setting').onclick = function () {
+        $('shoukuantai').style.display = "none";
+    }
 
 }
 

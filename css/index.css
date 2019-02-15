@@ -79,9 +79,23 @@
     background: #eee;
 }
 
+.rtab a{
+    display: block;
+    line-height: 50px;
+}
+
 .rtab li {
-    padding: 20px 5px;
-    font: 1000 40px/50px "微软雅黑"；
+    padding: 0 5px;
+    height: 50px;
+    font: 700 15px "微软雅黑";    
+}
+
+.rtab .setting {
+    margin: 150px 0 0 0;
+}
+
+.rtab .current {
+    background: #ddd;
 }
 
 /* 收款台 */
