@@ -34,14 +34,14 @@ window.onload = () => {
     });
 
     // 设置左侧tab
-    var items = document.getElementsByTagName('li');
+    var items = $('rtab').getElementsByTagName('li');
     for (var i = 0; i < items.length; ++i) {
-        // items[i].onmouseover = function () {
-        //     this.className = "current";
-        // }
-        // items[i].onmouseout = function () {
-        //     this.className = "";
-        // }
+        items[i].onmouseover = function () {
+            this.className += " current";
+        }
+        items[i].onmouseout = function () {
+            this.className = this.className.slice(0, this.className.indexOf(" current"));
+        }
     }
 
     $('shouYin').onclick = function () {
