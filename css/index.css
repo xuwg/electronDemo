@@ -1,5 +1,12 @@
-/*头部导航开始*/
-.shortcut {
+.inner_c {
+    /*版心 提取 */
+    width: 386;
+    margin: 0 auto;    
+    /* background-color: red; */
+}
+
+/*标题栏开始*/
+.caption {
     height: 30px;
     line-height: 30px;
     background-color: #f1f1f1;
@@ -7,17 +14,16 @@
     -webkit-app-region: drag;
 }
 
-/* .dt{
-    background-color: red;
-} */
-.dt,
-.shortcut .fore {
-    padding: 0 20px 0 10px;
+.nodrag {
+    -webkit-app-region: no-drag;    
+}
+
+.dt{
+    padding: 0 0 0 15px;
     position: relative;
 }
 
-.dt i,
-.fore i {
+.dt i{
     font: 400 15px/15px "宋体";
     position: absolute;
     top: 13px;
@@ -27,43 +33,23 @@
     width: 15px;
 }
 
-.dt s,
-.fore s {
+.dt s{
     position: absolute;
     top: -8px;
     left: 0;
 }
 
-.fr li {
+.caption li {
     float: left;
     padding: 0 10px;
 }
 
-.fr .line {
+.caption .line {
     width: 1px;
     height: 12px;
     background-color: #ddd;
     margin-top: 9px;
     padding: 0;
-}
-
-.shortcut .tel-jd {
-    padding: 0 20px 0 25px;
-}
-
-.tel {
-    position: absolute;
-    width: 15px;
-    height: 20px;
-    background: url(../images/sprite.png) no-repeat;
-    left: 5px;
-    top: 5px;
-}
-
-/*顶部end*/
-/*topbanner start*/
-.topbanner {
-    background-color: #8A25C6;
 }
 
 .close-banner {
@@ -78,59 +64,6 @@
 
 .close-banner:hover {
     background-position: bottom;
-}
-
-
-/*topbanner end*/
-
-.logo {
-    width: 360px;
-    height: 75px;
-    background-color: pink;
-    float: left;
-    padding-top: 25px;
-    background: url(../images/logo.png) no-repeat 0 25px;
-    position: relative;
-}
-
-.jd-a {
-    display: block;
-    width: 270px;
-    height: 60px;
-    text-indent: -2000em;
-}
-
-.db11 {
-    position: absolute;
-    width: 180px;
-    height: 80px;
-    background-color: pink;
-    top: 10px;
-    left: 168px;
-}
-
-
-.search {
-    width: 538px;
-    height: 75px;
-    background-color: purple;
-    float: left;
-    padding-top: 25px;
-}
-
-.car {
-    width: 139px;
-    height: 34px;
-    background-color: blue;
-    float: right;
-    margin: 25px 65px 0 0;
-}
-
-.inner_c {
-    /*版心 提取 */
-    width: 386;
-    margin: 0 auto;    
-    /* background-color: red; */
 }
 
 .shoukuantai .inner_c .amount{
