@@ -34,31 +34,38 @@ window.onload = () => {
     });
 
     // 设置左侧tab
-    var items = $('rtab').getElementsByTagName('li');
+    var items = $('ltab').getElementsByTagName('li');
     for (var i = 0; i < items.length; ++i) {
         items[i].onmouseover = function () {
-            this.className += " current";
+            this.bgc = this.style.background;
+            this.style.background = "#ddd";
         }
         items[i].onmouseout = function () {
-            this.className = this.className.slice(0, this.className.indexOf(" current"));
+            this.style.background = this.bgc;
         }
     }
 
     $('shouYin').onclick = function () {
         $('shoukuantai').style.display = "block";
+
+        SelectLTabItem(items, this);
         amountEdit.focus();
     }
     $('tuiKuan').onclick = function () {
         $('shoukuantai').style.display = "none";
+        SelectLTabItem(items, this);
     }
     $('mingXi').onclick = function () {
         $('shoukuantai').style.display = "none";
+        SelectLTabItem(items, this);
     }
     $('banJie').onclick = function () {
         $('shoukuantai').style.display = "none";
+        SelectLTabItem(items, this);
     }
     $('setting').onclick = function () {
         $('shoukuantai').style.display = "none";
+        SelectLTabItem(items, this);
     }
 
 }
@@ -66,6 +73,15 @@ window.onload = () => {
 document.getElementById('closebt').addEventListener('click', () => {
     ipc.send('window-close');
 });
+
+function SelectLTabItem(items, li) {
+
+    for (var i = 0; i < items.length; ++i) {
+        var className = items[i].className;
+        items[i].className  = className.replace("select","");
+    }
+    li.className += " select";
+}
 
 function IputAmount(num) {
 

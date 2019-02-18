@@ -67,37 +67,44 @@
 }
 
 /* 左侧tab栏 */
-.rtab{
+.ltab{
     list-style: none;
-    border-right: 1px solid #aaa;
-    padding-top: 10px;
     position: fixed;
     top: 30px;
     left: 0;
-    width: 40px;
+    width: 45px;
     height: 100%;
-    background: #eee;
+    background: #eee;    
 }
 
-.rtab a{
+.ltab .gap {
+    height:10px;
+    border-right: 1px solid red;       
+}
+.ltab a{
     display: block;
     line-height: 50px;
 }
 
-.rtab li {
+.ltab li {
     padding: 0 5px;
     height: 50px;
-    font: 700 15px "微软雅黑";    
+    font: 700 15px "微软雅黑";
+    border-right: 1px solid red;    
 }
 
-.rtab .setting {
-    margin: 150px 0 0 0;
+.ltab .settinggap {
+    height: 150px;
+    border-right: 1px solid red;  
 }
 
-.rtab .current {
-    background: #ddd;
+.ltab .select {
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    border-left: 2px solid red;    
+    border-right: none;    
+    background-color: #fff;    
 }
-
 /* 收款台 */
 .shoukuantai {
     padding: 0 10px 0 50px;
