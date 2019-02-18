@@ -19,13 +19,11 @@ function $(id) {
 
 window.onload = () => {
 
-    amountEdit.focus();
 
     if (!trayOn) {
         ipc.send('put-in-tray');
         trayOn = true;
     }
-
 
     // Tray removed from context menu on icon
     ipc.on('tray-removed', function () {
@@ -47,6 +45,9 @@ window.onload = () => {
     }
 
     var contents = $('content').children;
+    SelectLTabItem(items, contents, $('shouYin'));
+    amountEdit.focus();
+
     $('shouYin').onclick = function () {
         SelectLTabItem(items, contents, this);
         amountEdit.focus();
