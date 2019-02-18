@@ -36,51 +36,52 @@ window.onload = () => {
     // 设置左侧tab
     var items = $('ltab').getElementsByTagName('li');
     for (var i = 0; i < items.length; ++i) {
-        items[i].onmouseover = function () {
-            this.bgc = this.style.background;
-            this.style.background = "#ddd";
-        }
-        items[i].onmouseout = function () {
-            this.style.background = this.bgc;
-        }
+        items[i].index = i;
+    //     items[i].onmouseover = function () {
+    //         this.bgc = this.style.background;
+    //         this.style.background = "#ddd";
+    //     }
+    //     items[i].onmouseout = function () {
+    //         this.style.background = this.bgc;
+    //     }
     }
 
+    var contents = $('content').children;
     $('shouYin').onclick = function () {
-        $('shoukuantai').style.display = "block";
-
-        SelectLTabItem(items, this);
+        SelectLTabItem(items, contents, this);
         amountEdit.focus();
     }
     $('tuiKuan').onclick = function () {
-        $('shoukuantai').style.display = "none";
-        SelectLTabItem(items, this);
+        SelectLTabItem(items, contents, this);
     }
     $('mingXi').onclick = function () {
-        $('shoukuantai').style.display = "none";
-        SelectLTabItem(items, this);
+        SelectLTabItem(items, contents, this);
     }
     $('banJie').onclick = function () {
-        $('shoukuantai').style.display = "none";
-        SelectLTabItem(items, this);
+        SelectLTabItem(items, contents, this);
     }
     $('setting').onclick = function () {
-        $('shoukuantai').style.display = "none";
-        SelectLTabItem(items, this);
+        SelectLTabItem(items, contents, this);
     }
-
 }
 
 document.getElementById('closebt').addEventListener('click', () => {
     ipc.send('window-close');
 });
 
-function SelectLTabItem(items, li) {
+function SelectLTabItem(items, contents, li) {
 
     for (var i = 0; i < items.length; ++i) {
         var className = items[i].className;
         items[i].className  = className.replace("select","");
     }
     li.className += " select";
+
+    for(var i = 0; i < contents.length; ++i)
+    {
+        contents[i].style.display = "none";        
+    }
+    contents[li.index].style.display = "block";
 }
 
 function IputAmount(num) {

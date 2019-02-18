@@ -33,86 +33,111 @@
 
     <!-- 左侧tab栏 -->
     <ul id="ltab" class="ltab">
-        <div class="gap"></div>        
+        <div class="gap"></div>
         <li id="shouYin" class="select"><a href="javascript:;">收银</a></li>
         <li id="tuiKuan"><a href="javascript:;">退款</a></li>
         <li id="mingXi"><a href="javascript:;">明细</a></li>
-        <li id="banJie"><a href="javascript:;">班结</a></li>    
-        <div class="settinggap"></div>           
+        <li id="banJie"><a href="javascript:;">班结</a></li>
+        <div class="settinggap"></div>
         <li id="setting"><a href="javascript:;">设置</a></li>
         <div class="gap"></div>
     </ul>
 
-    <!-- 收款台 -->
-    <div id="shoukuantai" class="shoukuantai">
-        <div class="inner_c">
-            <div class="amount">
-                <h1 class="fl">金额：</h1>
-                <input type="text" id="amount" placeholder="请输入金额" class="input_amount fr" />
+    <ul id="content">
+        <li>
+            <!-- 收款台 -->
+            <div id="shoukuantai" class="content shoukuantai">
+                <div class="inner_c">
+                    <div class="amount">
+                        <h1 class="fl">金额：</h1>
+                        <input type="text" id="amount" placeholder="请输入金额" class="input_amount fr" />
+                    </div>
+                    <!-- 小键盘 -->
+                    <div class="keyboard">
+                        <div class="line clearfix">
+                            <ul>
+                                <li>
+                                    <a id="num1" href="#">1</a>
+                                </li>
+                                <li>
+                                    <a id="num2" href="#">2</a>
+                                </li>
+                                <li>
+                                    <a id="num3" href="#">3</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="line clearfix">
+                            <ul>
+                                <li>
+                                    <a id="num4" href="#">4</a>
+                                </li>
+                                <li>
+                                    <a id="num5" href="#">5</a>
+                                </li>
+                                <li>
+                                    <a id="num6" href="#">6</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="line clearfix">
+                            <ul>
+                                <li>
+                                    <a id="num7" href="#">7</a>
+                                </li>
+                                <li>
+                                    <a id="num8" href="#">8</a>
+                                </li>
+                                <li>
+                                    <a id="num9" href="#">9</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="line clearfix">
+                            <ul>
+                                <li>
+                                    <a id="numdot" href="#">.</a>
+                                </li>
+                                <li>
+                                    <a id="num0" href="#">0</a>
+                                </li>
+                                <li>
+                                    <a id="delete" href="javascript:;">
+                                        <img class="delete" src="images/Delete_normal.png">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 付款按钮 -->
+                    <div>
+                        <a href="#" class="zhifubtn">立即付款</a>
+                    </div>
+                </div>
             </div>
-            <!-- 小键盘 -->
-            <div class="keyboard">
-                <div class="line clearfix">
-                    <ul>
-                        <li>
-                            <a id="num1" href="#">1</a>
-                        </li>
-                        <li>
-                            <a id="num2" href="#">2</a>
-                        </li>
-                        <li>
-                            <a id="num3" href="#">3</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="line clearfix">
-                    <ul>
-                        <li>
-                            <a id="num4" href="#">4</a>
-                        </li>
-                        <li>
-                            <a id="num5" href="#">5</a>
-                        </li>
-                        <li>
-                            <a id="num6" href="#">6</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="line clearfix">
-                    <ul>
-                        <li>
-                            <a id="num7" href="#">7</a>
-                        </li>
-                        <li>
-                            <a id="num8" href="#">8</a>
-                        </li>
-                        <li>
-                            <a id="num9" href="#">9</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="line clearfix">
-                    <ul>
-                        <li>
-                            <a id="numdot" href="#">.</a>
-                        </li>
-                        <li>
-                            <a id="num0" href="#">0</a>
-                        </li>
-                        <li>
-                            <a id="delete" href="javascript:;">
-                                <img class="delete" src="images/Delete_normal.png">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+        </li>
+        <li>
+            <div class="content">
+                <div class="inner_c"><span>退款</span></div>
             </div>
-            <!-- 付款按钮 -->
-            <div>
-                <a href="#" class="zhifubtn">立即付款</a>
+        </li>
+        <li>
+            <div class="content">
+                <div class="inner_c">明细</div>
             </div>
-        </div>
-    </div>
+        </li>
+        <li>
+            <div class="content">
+                <div class="inner_c">班结</div>
+            </div>
+        </li>
+        <li>
+            <div class="content">
+                <div class="inner_c">设置</div>
+            </div>
+        </li>
+    </ul>
+
 
     <script>
         require('./renderer.js')
