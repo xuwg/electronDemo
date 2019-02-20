@@ -45,24 +45,24 @@ window.onload = () => {
     }
 
     var contents = $('content').children;
-    SelectLTabItem(items, contents, $('shouYin'));
+    SelectLeftTabItem(items, contents, $('shouYin'));
     amountEdit.focus();
 
     $('shouYin').onclick = function () {
-        SelectLTabItem(items, contents, this);
+        SelectLeftTabItem(items, contents, this);
         amountEdit.focus();
     }
     $('tuiKuan').onclick = function () {
-        SelectLTabItem(items, contents, this);
+        SelectLeftTabItem(items, contents, this);
     }
     $('mingXi').onclick = function () {
-        SelectLTabItem(items, contents, this);
+        SelectLeftTabItem(items, contents, this);
     }
     $('banJie').onclick = function () {
-        SelectLTabItem(items, contents, this);
+        SelectLeftTabItem(items, contents, this);
     }
     $('setting').onclick = function () {
-        SelectLTabItem(items, contents, this);
+        SelectLeftTabItem(items, contents, this);
     }
 }
 
@@ -70,7 +70,7 @@ document.getElementById('closebt').addEventListener('click', () => {
     ipc.send('window-close');
 });
 
-function SelectLTabItem(items, contents, li) {
+function SelectLeftTabItem(items, contents, li) {
 
     for (var i = 0; i < items.length; ++i) {
         var className = items[i].className;

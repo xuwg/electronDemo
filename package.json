@@ -4,17 +4,15 @@
   "description": "demo1",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package": "electron-packager . launcher --platform=win32 --arch=x64 --icon=cat.icon --out=./out --asar --app-version=0.0.1"
   },
   "author": "xuwg",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^3.0.13"
+    "electron-packager": "^13.1.0"
   },
   "dependencies": {
-    "antd": "^3.12.3",
-    "browser-sync": "^2.26.3",
-    "iohook": "^0.3.1",
-    "jshint": "^2.9.7"
+    "electron": "^4.0.5"
   }
 }
